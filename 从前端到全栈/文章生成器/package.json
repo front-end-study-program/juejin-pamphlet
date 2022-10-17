@@ -5,13 +5,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "build": "node build.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.11.0"
+    "@types/node": "^18.11.0",
+    "esbuild": "^0.15.11"
   },
   "dependencies": {
     "command-line-args": "^5.2.1",
