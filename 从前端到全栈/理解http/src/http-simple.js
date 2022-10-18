@@ -2,7 +2,7 @@ import http from 'http'
 import url from 'url'
 
 const server = http.createServer((req, res) => {
-  const { pathname } = url.parse(`http://${req.headers.host}${req.url}`)
+  const { pathname } = url.parse(req.url)
   if(pathname === '/') {
     res.writeHead(200, {'Content-Type': 'text/html'})
     res.end('<h1>Hello world</h1>')
