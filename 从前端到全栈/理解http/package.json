@@ -5,7 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node tcp-server.js"
+    "http-consult": "node ./src/http-consult.js",
+    "tcp-server": "node ./src/tcp-server.js",
+    "http-simple": "node ./src/http-simple.js"
   },
   "keywords": [],
   "author": "",
