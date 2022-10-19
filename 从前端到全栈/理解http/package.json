@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-static": "node ./src/http-static.js",
     "http-consult": "node ./src/http-consult.js",
     "tcp-server": "node ./src/tcp-server.js",
     "http-simple": "node ./src/http-simple.js"
@@ -14,5 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.11.0"
+  },
+  "dependencies": {
+    "mime": "^3.0.0"
   }
 }
