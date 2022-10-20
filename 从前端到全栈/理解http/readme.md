@@ -97,3 +97,22 @@ HTTP 请求常见的主类型如下：
 | audio       | 表明是某种音频文件                                                      | audio/midi, audio/mpeg, audio/webm, audio/ogg, audio/wav                                                                            |
 | video       | 表明是某种视频文件                                                      | video/webm, video/ogg                                                                                                               |
 | application | 表明是某种二进制数据                                                    | application/octet-stream, application/pkcs12, application/vnd.mspowerpoint, application/xhtml+xml, application/xml, application/pdf |
+
+## stream 模块
+
+`stream` 的应用场景主要就是处理IO操作，而http请求和文件操作都属于IO操作
+
+```js
+import http from 'http'
+import { fileURLToPath } from 'url'
+import { dirname, resolve, join } from 'path'
+import { createReadStream } from 'fs'
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const server = http.createServer((req, res) => {
+  // 拼接文件路径
+  let filePath = resolve(__dirname, join('../public', req.url))
+ 
+  const fileStream = createReadStream(filePath) // 以流的形式读取文件内容
+  fileStream.pipe(res) // pipe 将两个流连接，这样数据就会从上游流向下流
+})
+```

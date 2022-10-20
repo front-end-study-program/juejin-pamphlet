@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-stream": "node ./src/http-stream.js",
     "http-static": "node ./src/http-static.js",
     "http-consult": "node ./src/http-consult.js",
     "tcp-server": "node ./src/tcp-server.js",
