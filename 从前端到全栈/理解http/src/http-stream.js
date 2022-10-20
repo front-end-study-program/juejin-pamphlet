@@ -23,10 +23,11 @@ const server = http.createServer((req, res) => {
       const fileStream = createReadStream(filePath) // 以流的形式读取文件内容
       fileStream.pipe(res) // pipe 将两个流连接，这样数据就会从上游流向下流     
     }
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/html' })
+    res.end('<h1>Not Found</h1>')
   }
 
-  res.writeHead(404, { 'Content-Type': 'text/html' })
-  res.end('<h1>Not Found</h1>')
 }) 
 
 server.on('clientError', (err, socket) => {
