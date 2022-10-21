@@ -4,10 +4,12 @@ specifiers:
   '@types/node': ^18.11.0
   checksum: ^1.0.0
   mime: ^3.0.0
+  zlib: ^1.0.5
 
 dependencies:
   checksum: 1.0.0
   mime: 3.0.0
+  zlib: 1.0.5
 
 devDependencies:
   '@types/node': 18.11.0
@@ -40,4 +42,9 @@ packages:
   /wordwrap/0.0.3:
     resolution: {integrity: sha512-1tMA907+V4QmxV7dbRvb4/8MaRALK6q9Abid3ndMYnbyo8piisCmeONVqVSXqQA3KaP4SLt5b7ud6E2sqP8TFw==}
     engines: {node: '>=0.4.0'}
+    dev: false
+
+  /zlib/1.0.5:
+    resolution: {integrity: sha512-40fpE2II+Cd3k8HWTWONfeKE2jL+P42iWJ1zzps5W51qcTsOUKM5Q5m2PFb0CLxlmFAaUuUdJGc3OfZy947v0w==}
+    engines: {node: '>=0.2.0'}
     dev: false

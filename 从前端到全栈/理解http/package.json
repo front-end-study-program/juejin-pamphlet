@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-compression": "node ./src/http-compression.js",
     "http-etag": "node ./src/http-etag.js",
     "http-last-modified": "node ./src/http-last-modified.js",
     "http-cache-control": "node ./src/http-cache-control.js",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "checksum": "^1.0.0",
-    "mime": "^3.0.0"
+    "mime": "^3.0.0",
+    "zlib": "^1.0.5"
   }
 }
