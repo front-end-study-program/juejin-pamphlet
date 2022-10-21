@@ -5,6 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-etag": "node ./src/http-etag.js",
+    "http-last-modified": "node ./src/http-last-modified.js",
+    "http-cache-control": "node ./src/http-cache-control.js",
     "http-stream": "node ./src/http-stream.js",
     "http-static": "node ./src/http-static.js",
     "http-consult": "node ./src/http-consult.js",
@@ -18,6 +21,7 @@
     "@types/node": "^18.11.0"
   },
   "dependencies": {
+    "checksum": "^1.0.0",
     "mime": "^3.0.0"
   }
 }
