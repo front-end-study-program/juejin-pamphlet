@@ -116,3 +116,41 @@ const server = http.createServer((req, res) => {
   fileStream.pipe(res) // pipe 将两个流连接，这样数据就会从上游流向下流
 })
 ```
+
+## Http 缓存
+
+在 HTTP 协议中，动作 GET 和 OPTIONS 是支持缓存的。浏览器支持两种标准的缓存策略：强缓存和协商缓存
+
+### 强缓存
+
+浏览器的缓存规范允许服务器返回资源的时候带有Cache-Control响应头。这个策略叫做强缓存。
+
+Cache-Control响应头的最常用格式为：
+
+```ini
+Cache-Control: max-age=<seconds>
+```
+
+当浏览器请求资源得到的响应带有Cache-Control响应头时，浏览器会将该资源缓存到本地。当浏览器下一次访问该资源时，同时满足以下 3 个条件，浏览器会直接使用本地的资源，不发起 HTTP 请求：
+  
+- 两次请求的 url 完全相同（包括了 host、pathname、query）
+- 请求的动作是 GET
+- 请求头不带有Cache-Control: no-cache和Pragma: no-cache这两个信息
+
+根据浏览器的标准，通过地址栏访问、以及强制刷新网页的时候，HTTP 请求头自动会带上Cache-Control: no-cache和Pragma: no-cache的信息。只要有这两个请求头之一，浏览器就会忽略响应头中的Cache-Control字段。
+
+### 协商缓存
+
+以 HTTP 内容协商的方式来实现的缓存，称为协商缓存。
+
+协商缓存规定，浏览器再发起 HTTP 请求的时候，服务器可以返回Last-Modified响应头，这个响应头的值是一个时间戳。如果服务器这么做了，那么浏览器会缓存这个资源，并且在今后请求该资源的时候，会带有if-modified-since请求头，它的值是上一次Last-Modified响应头中的时间戳。
+
+服务器收到带有if-modified-since请求头的请求，根据请求头中的时间戳，对文件进行判断，如果文件内容在该时间戳之后到当前时间里没有被修改，那么服务器返回一个 304 响应，该响应表示只有 HEAD 没有 BODY。浏览器如果收到 304 响应，就会以缓存的内容作为 BODY。
+
+协商缓存不止Last-Modified一种，还有一种协商缓存是Etag，它的机制和Last-Modified大同小异，只是把Last-Modified的时间戳换成Etag签名，相应地把If-Modified-Since字段换成If-None-Match字段。Etag的值可以用资源文件的 MD5 或 sha 签名。
+
+协商缓存为什么要有两种呢？
+
+- 有时候我们的网站是分布式部署在多台服务器上，一个资源文件可能在每台服务器上都有副本，相应地资源文件被修改时候，新的文件要同步到各个服务器上，导致各个文件副本的修改时间不一定相同。那么当用户一次访问请求的服务器和另一次访问请求的服务器不同时，就有可能因为两个文件副本的修改时间不同而使得Last-Modified形式的协商缓存失效。
+
+- 如果这种情况采用Etag形式的协商缓存，根据文件内容而不是修改时间来判断缓存，就不会有这个问题了。使用Etag实现协商缓存的思路，与使用Last-Modified类似，只是用文件内容的 checksum 校验代替文件信息中的stats.mtimeMs来判断文件内容是否被修改。
