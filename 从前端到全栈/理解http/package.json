@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-interceptor": "node ./src/http-interceptor.js",
     "http-compression": "node ./src/http-compression.js",
     "http-etag": "node ./src/http-etag.js",
     "http-last-modified": "node ./src/http-last-modified.js",

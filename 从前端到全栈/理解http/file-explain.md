@@ -9,3 +9,5 @@
 - http-last-modified (http 协商缓存)
 - http-etag (http 协商缓存)
 - http-compression (http文件压缩)
+- interceptor (拦截器)
+- http-interceptor (http 拦截器)
