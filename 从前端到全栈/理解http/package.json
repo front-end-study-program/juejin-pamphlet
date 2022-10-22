@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-router": "node ./src/http-router.js",
     "http-interceptor": "node ./src/http-interceptor.js",
     "http-compression": "node ./src/http-compression.js",
     "http-etag": "node ./src/http-etag.js",
