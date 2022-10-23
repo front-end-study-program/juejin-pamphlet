@@ -1,5 +1,5 @@
 import http from 'http'
-import Interceptor from './interceptor.js'
+import Interceptor from '../../lib/interceptor.js'
 
 export default class Server {
   constructor() {

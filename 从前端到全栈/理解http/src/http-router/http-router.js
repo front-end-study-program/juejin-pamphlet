@@ -1,5 +1,5 @@
-import Server from './http-interceptor.js'
-import Router from './router.js'
+import Server from '../http-interceptor/http-interceptor.js'
+import Router from '../../lib/router.js'
 
 
 const app = new Server()

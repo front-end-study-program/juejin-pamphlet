@@ -9,7 +9,7 @@ import checksum from 'checksum'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const server = http.createServer((req, res) => {
-  let filePath = resolve(__dirname, join('../public', req.url))
+  let filePath = resolve(__dirname, join('../../public', req.url))
 
   if(!existsSync(filePath)) {
     res.writeHead(404, {'Content-Type': 'text/html'});

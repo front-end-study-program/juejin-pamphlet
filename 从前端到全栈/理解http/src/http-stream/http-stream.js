@@ -1,14 +1,14 @@
 import http from 'http'
 import { fileURLToPath } from 'url'
 import { dirname, resolve, join, parse } from 'path'
-import { existsSync, statSync, readFileSync } from 'fs'
+import { existsSync, statSync, createReadStream } from 'fs'
 import mime from 'mime' // 获取文件扩展类型
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const server = http.createServer((req, res) => {
   // 拼接文件路径
-  let filePath = resolve(__dirname, join('../public', req.url))
+  let filePath = resolve(__dirname, join('../../public', req.url))
 
   if(existsSync(filePath)) {
     const stats = statSync(filePath) // 返回文件状态信息
@@ -18,15 +18,16 @@ const server = http.createServer((req, res) => {
     }
 
     if(!isDir || existsSync(filePath)) {
-      const content = readFileSync(filePath) // 读取文件
       const { ext } = parse(filePath) // 获取文件扩展名
       res.writeHead(200, { 'Content-Type': mime.getType(ext) })
-      return res.end(content)
+      const fileStream = createReadStream(filePath) // 以流的形式读取文件内容
+      fileStream.pipe(res) // pipe 将两个流连接，这样数据就会从上游流向下流     
     }
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/html' })
+    res.end('<h1>Not Found</h1>')
   }
 
-  res.writeHead(404, { 'Content-Type': 'text/html' })
-  res.end('<h1>Not Found</h1>')
 }) 
 
 server.on('clientError', (err, socket) => {

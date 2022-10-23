@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const server = http.createServer((req, res) => {
   // 拼接文件路径
-  let filePath = resolve(__dirname, join('../public', req.url))
+  let filePath = resolve(__dirname, join('../../public', req.url))
 
   if(existsSync(filePath)) {
     const stats = statSync(filePath) // 返回文件状态信息
