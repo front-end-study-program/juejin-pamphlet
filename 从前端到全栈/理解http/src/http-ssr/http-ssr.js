@@ -28,11 +28,11 @@ app.use(router.get('/coronavirus/index', async ({ route, res }, next) => {
    await next()
 }))
 
-app.use(router.get('/coronavirus/:date', param))
+app.use(param)
 
 app.use(router.get('/coronavirus/:date', async ({params, route, res}, next) => {
   const data = getCoronavirusByDate(route.date)
-  if(params.get('type') === 'json') {
+  if(params.type === 'json') {
     res.setHeader('Content-Type', 'application/json')
     res.body = { data }
   } else {
