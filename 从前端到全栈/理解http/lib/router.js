@@ -49,7 +49,7 @@ function route(method, rule, aspect) {
     const req = ctx.req
     if(!ctx.url) ctx.url = url.parse(`http://${req.headers.host}${req.url}`)
     const checked = check(rule, ctx.url.pathname) // 根据路径规则解析路径
-    if((method === '*' || req.method === method)
+    if(!ctx.route && (method === '*' || req.method === method)
       && !!checked) {
       ctx.route = checked
       await aspect(ctx, next)

@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "todo-list": "node ./src/persistent-storage/server/index.js",
     "http-ssr": "node ./src/http-ssr/http-ssr.js",
     "http-router": "node ./src/http-router/http-router.js",
     "http-interceptor": "node ./src/http-interceptor/http-interceptor.js",
@@ -28,6 +29,10 @@
     "checksum": "^1.0.0",
     "handlebars": "^4.7.7",
     "mime": "^3.0.0",
+    "query-string": "^7.1.1",
+    "querystring": "^0.2.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.2",
     "zlib": "^1.0.5"
   }
 }
