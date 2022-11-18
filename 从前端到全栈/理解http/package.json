@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "http-Cluster": "node ./src/http-Cluster/http-Cluster.js",
     "todo-list": "node ./src/persistent-storage/server/index.js",
     "http-ssr": "node ./src/http-ssr/http-ssr.js",
     "http-router": "node ./src/http-router/http-router.js",
