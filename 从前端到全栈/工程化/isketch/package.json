@@ -1,0 +1,28 @@
+{
+  "name": "isketch",
+  "version": "0.0.1",
+  "description": "A SVG doodle for sketching",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "start": "...",
+    "lint": "eslint --ext src/**/*.js",
+    "lint:fix": "eslint --fix src/**/*.js",
+    "lint:init": "eslint --init",
+    "compile": "...",
+    "build": "...",
+    "deploy": "...",
+    "test": "...",
+    "prepublishOnly": "..."
+  },
+  "keywords": [],
+  "author": "yanquanfahei <1449826851@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0"
+  }
+}
