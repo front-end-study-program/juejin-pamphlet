@@ -45,7 +45,7 @@ enum Items3 {
 // 字符串枚举值和数字枚举值
 enum Mixed {
   Num = 599,
-  Str = "linbudu"
+  Str = ""
 }
 
 

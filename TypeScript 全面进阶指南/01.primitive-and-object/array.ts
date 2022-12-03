@@ -10,19 +10,19 @@ console.log(arr3[599]);
 
 const arr4: [string, string, string] = ['lin', 'bu', 'du'];
 
-const arr5: [string, number, boolean] = ['linbudu', 599, true];
+const arr5: [string, number, boolean] = ['', 599, true];
 
 console.log(arr4[599]);
 
-const arr6: [string, number?, boolean?] = ['linbudu'];
+const arr6: [string, number?, boolean?] = [''];
 
 // 这么写也可以
-// const arr6: [string, number?, boolean?] = ['linbudu', , ,];
+// const arr6: [string, number?, boolean?] = ['', , ,];
 
 type TupleLength = typeof arr6.length; // 1 | 2 | 3
 
 // TS 4.0 具名元组
-const arr7: [name: string, age: number, male: boolean] = ['linbudu', 599, true];
+const arr7: [name: string, age: number, male: boolean] = ['', 599, true];
 
 const [name, age, male, other] = arr5;
 

@@ -12,9 +12,9 @@
 const tmp1: Object = undefined;
 const tmp2: Object = null;
 const tmp3: Object = void 0;
-const tmp4: Object = 'linbudu';
+const tmp4: Object = '';
 const tmp5: Object = 599;
-const tmp6: Object = { name: 'linbudu' };
+const tmp6: Object = { name: '' };
 const tmp7: Object = () => {};
 const tmp8: Object = [];
 
@@ -24,11 +24,11 @@ const tmp8: Object = [];
 const tmp9: String = undefined;
 const tmp10: String = null;
 const tmp11: String = void 0;
-const tmp12: String = 'linbudu';
+const tmp12: String = '';
 
 // 以下不成立，因为不是字符串类型的拆箱类型
 const tmp13: String = 599; // X
-const tmp14: String = { name: 'linbudu' }; // X
+const tmp14: String = { name: '' }; // X
 const tmp15: String = () => {}; // X
 const tmp16: String = []; // X
 
@@ -40,10 +40,10 @@ const tmp17: object = undefined;
 const tmp18: object = null;
 const tmp19: object = void 0;
 
-const tmp20: object = 'linbudu';  // X 不成立，值为原始类型
+const tmp20: object = '';  // X 不成立，值为原始类型
 const tmp21: object = 599; // X 不成立，值为原始类型
 
-const tmp22: object = { name: 'linbudu' };
+const tmp22: object = { name: '' };
 const tmp23: object = () => {};
 const tmp24: object = [];
 
@@ -52,10 +52,10 @@ const tmp24: object = [];
 const tmp25: {} = undefined;
 const tmp26: {} = null;
 const tmp27: {} = void 0;
-const tmp28: {} = 'linbudu';
+const tmp28: {} = '';
 const tmp29: {} = 599;
 // 虽然能够将其作为变量的类型，但实际上无法对这个变量进行任何赋值操作
-const tmp30: {} = { name: 'linbudu' };
+const tmp30: {} = { name: '' };
 tmp30.age = 18;
 const tmp31: {} = () => {};
 const tmp32: {} = [];

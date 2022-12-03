@@ -1,4 +1,4 @@
-const uniqueSymbolFoo: unique symbol = Symbol('linbudu');
+const uniqueSymbolFoo: unique symbol = Symbol('');
 
 // 类型不兼容
 const uniqueSymbolBar: unique symbol = uniqueSymbolFoo;

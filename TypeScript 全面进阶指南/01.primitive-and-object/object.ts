@@ -6,7 +6,7 @@ interface IDescription {
 }
 
 const obj1: IDescription = {
-  name: 'linbudu',
+  name: '',
   age: 599,
   male: true,
 };
@@ -20,7 +20,7 @@ interface IDescription2 {
 }
 
 const obj2: IDescription2 = {
-  name: 'linbudu',
+  name: '',
   age: 599,
   male: true,
   // 无需实现 func 也是合法的
@@ -36,7 +36,7 @@ interface IDescription3 {
 }
 
 const obj3: IDescription3 = {
-  name: 'linbudu',
+  name: '',
   age: 599,
 };
 

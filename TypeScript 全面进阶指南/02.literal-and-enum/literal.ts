@@ -9,14 +9,14 @@ interface Res {
 // 字面量类型
 // 字面量类型主要包括字符串字面量类型、数字字面量类型、布尔字面量类型和对象字面量类型，它们可以直接作为类型标注，更精准
 
-const str: 'linbudu' = 'linbudu';
+const str: '' = '';
 const num: 599 = 599;
 const bool: true = true;
 
 // 报错！
-const str1: 'linbudu' = 'linbudu599';
-const str2: string = 'linbudu';
-const str3: string = 'linbudu599';
+const str1: '' = '599';
+const str2: string = '';
+const str3: string = '599';
 
 
 /**
@@ -56,14 +56,14 @@ type Status = 'success' | 'failure';
 // 对象字面量类型
 interface _Tmp {
   obj: {
-    name: 'linbudu';
+    name: '';
     age: 18;
   };
 }
 
 const _tmp: _Tmp = {
   obj: {
-    name: 'linbudu',
+    name: '',
     age: 18,
   },
 };
