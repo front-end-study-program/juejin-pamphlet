@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "module": "src/index.js",
   "scripts": {
-    "start": "...",
+    "start": "http-server -c-1 -p9090",
     "lint": "eslint --ext src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js",
     "lint:init": "eslint --init",
@@ -26,7 +26,8 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "eslint-plugin-promise": "^6.0.0",
+    "http-server": "^14.1.1"
   },
   "dependencies": {
     "core-js": "3"
